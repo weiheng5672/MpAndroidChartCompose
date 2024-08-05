@@ -60,7 +60,7 @@ fun MyBarChat(
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MyBarChatPreview() {
     MpAndroidChartComposeTheme {
         MyBarChat()
     }
