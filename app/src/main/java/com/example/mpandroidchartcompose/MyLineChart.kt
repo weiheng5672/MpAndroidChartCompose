@@ -24,18 +24,8 @@ fun MyLineChart(
             val lineChart = LineChart(context)
 
             // 初始化 LineEntries 列表
-            val lineEntriesList = ArrayList<Entry>().apply {
-                add(Entry(1f, 5f))
-                add(Entry(2f, 4f))
-                add(Entry(3f, 3f))
-                add(Entry(4f, 2f))
-                add(Entry(5f, 1f))
-                add(Entry(6f, 5f))
-                add(Entry(7f, 4f))
-                add(Entry(8f, 3f))
-                add(Entry(9f, 2f))
-                add(Entry(10f, 1f))
-            }
+            val lineEntriesList = lineEntriesList
+
 
             // 创建 LineDataSet 和 LineData
             val lineDataSet = LineDataSet(lineEntriesList, "Line Chart Data").apply {
@@ -46,6 +36,7 @@ fun MyLineChart(
                 setDrawCircles(true)
                 setDrawCircleHole(false)
                 circleRadius = 5f
+                setDrawValues(false)
             }
 
             val lineData = LineData(lineDataSet)
