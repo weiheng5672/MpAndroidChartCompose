@@ -51,7 +51,8 @@ fun MyBarChat(
             }
 
             barChart
-            
+
+        }
     )
 }
 
