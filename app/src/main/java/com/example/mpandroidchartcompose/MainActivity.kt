@@ -135,6 +135,6 @@ fun MyComposable(
 @Composable
 fun GreetingPreview() {
     MpAndroidChartComposeTheme {
-
+        MyComposable()
     }
 }
