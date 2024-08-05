@@ -21,6 +21,7 @@ fun MyBarChat(
     AndroidView(
 
         modifier = modifier.fillMaxSize(),
+
         factory = { context ->
             // 创建 BarChart 实例
             val barChart = BarChart(context)
