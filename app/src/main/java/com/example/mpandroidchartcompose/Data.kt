@@ -81,3 +81,54 @@ val data = listOf(955316317,1076022820,
 val pairs = years.zip(data)
 
 val lineEntriesList = pairs.map { (x,y) -> Entry(x,y) }
+
+object DataUtils {
+    /**
+     * Returns list of points
+     * @param listSize: Size of total number of points needed.
+     * @param start: X values to start from. ex: 50 to 100
+     * @param maxRange: Max range of Y values
+     */
+    fun getLineChartData(listSize: Int, start: Int = 0, maxRange: Int): List<Entry> {
+        val list = arrayListOf<Entry>()
+        for (index in 0 until listSize) {
+            list.add(
+                Entry(
+                    index.toFloat(),
+                    (start until maxRange).random().toFloat()
+                )
+            )
+        }
+        return list
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

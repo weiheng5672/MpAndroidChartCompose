@@ -11,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import com.example.mpandroidchartcompose.DataUtils
 import com.example.mpandroidchartcompose.InventoryTopAppBar
 import com.example.mpandroidchartcompose.R
 import com.example.mpandroidchartcompose.lineEntriesList
@@ -48,7 +49,11 @@ fun MyLineChart(
                 val lineChart = LineChart(context)
 
                 // 初始化 LineEntries 列表
-                val lineEntriesList = lineEntriesList
+                val lineEntriesList = DataUtils.getLineChartData(
+                    20,
+                    start = -10,
+                    maxRange = 10
+                )
 
 
                 // 创建 LineDataSet 和 LineData
@@ -58,6 +63,7 @@ fun MyLineChart(
                     setDrawCircles(true)
                     setDrawCircleHole(false)
                     setDrawValues(false)
+                    mode = LineDataSet.Mode.CUBIC_BEZIER // 设置平滑线条
                 }
 
                 val lineData = LineData(lineDataSet)
@@ -72,8 +78,8 @@ fun MyLineChart(
                     xAxis.isEnabled = true
                     xAxis.setDrawLabels(true)
                     xAxis.position = XAxis.XAxisPosition.BOTTOM
-                    xAxis.valueFormatter = CustomYearValueFormatter()
-                    axisLeft.valueFormatter = CustomEnergyValueFormatter()
+//                    xAxis.valueFormatter = CustomYearValueFormatter()
+//                    axisLeft.valueFormatter = CustomEnergyValueFormatter()
                     invalidate() // 刷新图表
                 }
 
