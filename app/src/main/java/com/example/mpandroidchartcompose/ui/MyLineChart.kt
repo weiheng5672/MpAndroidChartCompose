@@ -48,16 +48,15 @@ fun MyLineChart(
             factory = { context ->
                 val lineChart = LineChart(context)
 
-                // 初始化 LineEntries 列表
-                val lineEntriesList = DataUtils.getLineChartData(
+                // 初始化第一个数据源
+                val lineEntriesList1 = DataUtils.getLineChartData(
                     20,
                     start = -10,
                     maxRange = 10
                 )
 
-
-                // 创建 LineDataSet 和 LineData
-                val lineDataSet = LineDataSet(lineEntriesList, "Line Chart Data").apply {
+                // 创建第一个 LineDataSet
+                val lineDataSet1 = LineDataSet(lineEntriesList1, "Line Chart Data 1").apply {
                     color = ContextCompat.getColor(context, R.color.purple_200)
                     lineWidth = 2.5f
                     setDrawCircles(true)
@@ -66,13 +65,30 @@ fun MyLineChart(
                     mode = LineDataSet.Mode.CUBIC_BEZIER // 设置平滑线条
                 }
 
-                val lineData = LineData(lineDataSet)
+                // 初始化第二个数据源
+                val lineEntriesList2 = DataUtils.getLineChartData(
+                    20,
+                    start = -5,
+                    maxRange = 15
+                )
+
+                // 创建第二个 LineDataSet
+                val lineDataSet2 = LineDataSet(lineEntriesList2, "Line Chart Data 2").apply {
+                    color = ContextCompat.getColor(context, R.color.teal_200) // 使用不同颜色
+                    lineWidth = 2.5f
+                    setDrawCircles(true)
+                    setDrawCircleHole(false)
+                    setDrawValues(false)
+                    mode = LineDataSet.Mode.CUBIC_BEZIER // 设置平滑线条
+                }
+
+                val lineData = LineData(lineDataSet1, lineDataSet2)
 
                 // 设置 LineChart 数据和属性
                 lineChart.apply {
                     data = lineData
                     description.isEnabled = false
-                    legend.isEnabled = false
+                    legend.isEnabled = true // 启用图例以区分不同的 LineDataSet
                     axisLeft.isEnabled = true
                     axisRight.isEnabled = false
                     xAxis.isEnabled = true
