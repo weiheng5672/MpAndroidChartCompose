@@ -48,12 +48,12 @@ fun MyBarChat(
                 val barChart = BarChart(context)
 
                 // 初始化 BarEntries 列表
+                val values = listOf(5f, 4f, 3f, 2f, 1f, 5f, 4f, 3f, 2f, 1f)
+
                 val barEntriesList = ArrayList<BarEntry>().apply {
-                    add(BarEntry(1f, 5f))
-                    add(BarEntry(2f, 4f))
-                    add(BarEntry(3f, 3f))
-                    add(BarEntry(4f, 2f))
-                    add(BarEntry(5f, 1f))
+                    values.forEachIndexed { index, value ->
+                        add(BarEntry((index + 1).toFloat(), value))
+                    }
                 }
 
                 // 创建 BarDataSet 和 BarData
