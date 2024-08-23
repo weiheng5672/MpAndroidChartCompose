@@ -21,7 +21,8 @@ import com.example.mpandroidchartcompose.ui.theme.MpAndroidChartComposeTheme
 @Composable
 fun HomeScreen(
     navigateToBarChart: () -> Unit,
-    navigateToLineChart: () -> Unit
+    navigateToLineChart: () -> Unit,
+    navigateToRealLineChart: () -> Unit
 ){
     Scaffold(
         topBar = {
@@ -61,6 +62,14 @@ fun HomeScreen(
                 )
             }
 
+            Button(
+                onClick =  navigateToRealLineChart
+            ) {
+                Text(
+                    text = stringResource(NavigationRoutes.RealLineDestination.titleRes)
+                )
+            }
+
         }
 
 
@@ -75,7 +84,8 @@ fun HomePreview() {
     MpAndroidChartComposeTheme {
         HomeScreen(
             navigateToBarChart = {},
-            navigateToLineChart = {}
+            navigateToLineChart = {},
+            navigateToRealLineChart = {}
         )
     }
 }

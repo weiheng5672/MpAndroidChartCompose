@@ -22,5 +22,10 @@ sealed class NavigationRoutes(
         titleRes = R.string.line_chart_title
     )
 
+    data object RealLineDestination : NavigationRoutes(
+        route = "real_line",
+        titleRes = R.string.real_line_chart_title
+    )
+
 
 }

@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.example.mpandroidchartcompose.ui.HomeScreen
 import com.example.mpandroidchartcompose.ui.MyBarChat
 import com.example.mpandroidchartcompose.ui.MyLineChart
+import com.example.mpandroidchartcompose.ui.RealLineChart
 
 
 @Composable
@@ -28,7 +29,9 @@ fun NavigationGraph(
 
                 navigateToBarChart = { navController.navigate(NavigationRoutes.BarDestination.route) },
 
-                navigateToLineChart = { navController.navigate(NavigationRoutes.LineDestination.route) }
+                navigateToLineChart = { navController.navigate(NavigationRoutes.LineDestination.route) },
+
+                navigateToRealLineChart = { navController.navigate(NavigationRoutes.RealLineDestination.route) }
 
             )
 
@@ -39,7 +42,7 @@ fun NavigationGraph(
 
             MyBarChat(
 
-                navigateBack = { navController.navigate(NavigationRoutes.HomeDestination.route) },
+                navigateBack = { navController.navigate(NavigationRoutes.HomeDestination.route) }
 
             )
 
@@ -49,7 +52,17 @@ fun NavigationGraph(
 
             MyLineChart(
 
-                navigateBack = { navController.navigate(NavigationRoutes.HomeDestination.route) },
+                navigateBack = { navController.navigate(NavigationRoutes.HomeDestination.route) }
+
+            )
+
+        }
+
+        composable(route = NavigationRoutes.RealLineDestination.route) {
+
+            RealLineChart(
+
+                navigateBack = { navController.navigate(NavigationRoutes.HomeDestination.route) }
 
             )
 
